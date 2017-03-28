@@ -2,7 +2,7 @@
 default: &default
   adapter: postgresql
   encoding: unicode
-  host: postgres
+  host: database
   user: dockerized_rails
   password: s3cur3p4ssw0rdñ
   pool: 5
