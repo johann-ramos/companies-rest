@@ -1,11 +1,10 @@
-# SQLite version 3.x
-#   gem install sqlite3
-#
-#   Ensure the SQLite 3 gem is defined in your Gemfile
-#   gem 'sqlite3'
-#
+
 default: &default
   adapter: postgresql
+  encoding: unicode
+  host: postgres
+  user: <%= ENV['db_user'] %>
+  password: <%= ENV['db_pass'] %>
   pool: 5
   timeout: 5000
 
@@ -22,8 +21,4 @@ test:
 
 production:
   <<: *default
-  encoding: unicode
   database: companies
-  host: postgres
-  user: ENV["db_user"]
-  password: ENV["db_pass"]
