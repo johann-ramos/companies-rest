@@ -2,7 +2,6 @@
 default: &default
   adapter: postgresql
   encoding: unicode
-  host: postgres
   user: dockerized_rails
   password: s3cur3p4ssw0rdñ
   pool: 5
@@ -10,6 +9,7 @@ default: &default
 
 development:
   <<: *default
+  host: localhost
   database: companies_develop
 
 # Warning: The database defined as "test" will be erased and
@@ -17,8 +17,10 @@ development:
 # Do not set this db to the same as development or production.
 test:
   <<: *default
+  host: localhost
   database: companies_test
 
 production:
   <<: *default
+  host: database
   database: companies
