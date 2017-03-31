@@ -2,8 +2,8 @@
 default: &default
   adapter: postgresql
   encoding: unicode
-  user: dockerized_rails
-  password: s3cur3p4ssw0rdñ
+  user: <%= ENV["POSTGRES_USER"] %>
+  password: <%= ENV["POSTGRES_PASS"] %>
   pool: 5
   timeout: 5000
 
@@ -22,5 +22,5 @@ test:
 
 production:
   <<: *default
-  host: database
+  host: <%= ENV["POSTGRES_HOST"] %>
   database: companies
