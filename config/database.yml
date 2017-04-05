@@ -2,14 +2,14 @@
 default: &default
   adapter: postgresql
   encoding: unicode
-  user: <%= ENV["POSTGRES_USER"] %>
-  password: <%= ENV["POSTGRES_PASS"] %>
+  user: postgres
+  password:
   pool: 5
   timeout: 5000
 
 development:
   <<: *default
-  host: localhost
+  host: db
   database: companies_develop
 
 # Warning: The database defined as "test" will be erased and
@@ -17,10 +17,10 @@ development:
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  host: localhost
+  host: db
   database: companies_test
 
 production:
   <<: *default
-  host: <%= ENV["POSTGRES_HOST"] %>
+  host: db
   database: companies

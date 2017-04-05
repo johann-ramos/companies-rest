@@ -1,6 +1,7 @@
 **Companies**
 ----
   Manage companies and owners in the database.
+  docker-compose run app rake db:setup
 
 **URL:** /companies/
 
